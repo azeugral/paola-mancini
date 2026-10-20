@@ -6,9 +6,8 @@ Publicado em https://azeugral.github.io/paola-mancini/ (com `noindex` até a apr
 
 ## Páginas
 
-- `index.html`: hero, frase da bio, atendimentos, como funciona o Dia da Noiva, portfólio resumido, depoimentos, sobre, cursos e ateliê com mapa.
+- `index.html`: hero, frase da bio, atendimentos, como funciona o Dia da Noiva, portfólio resumido, depoimentos, sobre e ateliê com mapa.
 - `portfolio.html`: 79 fotos em grade 4:5 com filtros (Noivas, Penteados, Maquiagem, Editoriais) e foto ampliada.
-- `cursos.html`: cursos de penteado (formação de penteadistas).
 - `agendar.html`: formulário que monta a mensagem para o WhatsApp (12) 99224-6928.
 - `404.html`
 
@@ -21,7 +20,7 @@ O fundo de seda com fios dourados foi gerado por IA (`_ref/fundo-seda.png`).
 ## Ferramentas
 
 ```
-python -I tools/paginas.py     # monta portfolio/cursos/agendar/404 a partir de _partes/ e do cabeçalho/rodapé do index
+python -I tools/paginas.py     # monta portfolio/agendar/404 a partir de _partes/ e do cabeçalho/rodapé do index
 python -I tools/processar.py   # recorta as fotos de ../_ref/ig e injeta a grade do portfólio
 python -I tools/og.py          # prévia de link (og.jpg) e favicons
 ```
@@ -35,7 +34,7 @@ python -I tools/og.py          # prévia de link (og.jpg) e favicons
 - [ ] **Teste de maquiagem/penteado** antes do casamento: oferece? Entra no pacote?
 - [ ] **Atendimento fora do ateliê** (casa da noiva, hotel, local da festa) e taxa de deslocamento.
 - [ ] **Valores** de noiva, madrinha, debutante e make social (não publicados).
-- [ ] **Cursos**: formato (VIP/turma), carga horária, datas, valores, certificado.
+- [ ] **Cursos de penteado**: a seção foi retirada em 20/10 por falta de dados concretos. Se ela quiser divulgar, levantar formato, datas e valores.
 - [ ] **Depoimentos**: tirados dos prints que ela postou (Júlia, Ketly, Ellen, Débora, Rochiely e uma noiva amiga de infância), com cortes para caber. Confirmar se pode usar os nomes.
 - [ ] **Fotografia**: alguns posts sugerem que ela também fotografa (ensaios de Natal, Dia das Mães, casamentos, #tamagnonifotografia). Confirmar se é serviço dela e se entra no site.
 - [ ] Créditos dos fotógrafos parceiros (Tamagnoni, Neto Paulo, Mauro Foto Pro, Estefani Lopes) se ela quiser.

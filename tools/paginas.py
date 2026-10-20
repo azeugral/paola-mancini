@@ -8,7 +8,7 @@ ler = lambda n: open(os.path.join(P, n), encoding='utf-8').read()
 head, nav, foot = ler('head.html'), ler('nav.html'), ler('foot.html')
 URL = 'https://azeugral.github.io/paola-mancini/'
 
-for nome in ['portfolio.html', 'cursos.html', 'agendar.html', '404.html']:
+for nome in ['portfolio.html', 'agendar.html', '404.html']:
     meta, corpo = ler(nome).split('---\n', 1)
     m = dict(l.split(': ', 1) for l in meta.strip().splitlines())
     h = head

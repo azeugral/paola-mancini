@@ -194,20 +194,9 @@ p{margin:0 0 1em}
 .fatos b{display:block;font:600 19px/1.25 var(--serif);color:var(--vinho)}
 .fatos span{font-size:14px;color:var(--cinza)}
 
-/* cursos */
-.curso{background:var(--champ) url(img/seda.webp) center/cover no-repeat;position:relative;isolation:isolate}
-.curso::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(251,247,243,.6)}
-.curso .grade{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:center}
-.curso h2{font-size:clamp(32px,4vw,52px);margin-bottom:18px}
-.curso p{color:var(--cinza);font-size:17px}
-.tecnicas{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;list-style:none;padding:0;margin:26px 0 34px}
-.tecnicas li{display:flex;gap:12px;align-items:baseline;font:500 15.5px/1.4 var(--sans);color:var(--vinho);padding-bottom:10px;border-bottom:1px solid var(--linha)}
-.tecnicas li::before{content:"";width:5px;height:5px;flex:none;background:var(--ouro);transform:rotate(45deg) translateY(-2px)}
-.trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.trio img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--blush)}
-.trio img:nth-child(2){transform:translateY(-34px)}
 
 /* ateliê */
+.atelie{background:var(--champ)}
 .atelie .grade{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--linha);background:#fff}
 .atelie .info{padding:clamp(32px,4vw,56px)}
 .atelie h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:26px}
@@ -293,13 +282,12 @@ fieldset.campo{border:0;padding:0;margin:0}
   .hero::before{background:linear-gradient(180deg,rgba(251,247,243,.6),rgba(251,247,243,.2))}
   .hero .wrap{grid-template-columns:1fr;min-height:0;gap:56px;padding-top:44px;padding-bottom:84px}
   .quadro{justify-self:center;width:min(100% - 14px,440px);margin-left:14px}
-  .dia .grade,.sobre .grade,.curso .grade,.atelie .grade{grid-template-columns:1fr}
+  .dia .grade,.sobre .grade,.atelie .grade{grid-template-columns:1fr}
   .depos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(86%,380px);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;margin:0 calc(var(--pad) * -1);padding:0 var(--pad) 8px;scrollbar-width:none;overscroll-behavior-x:contain}
   .depos::-webkit-scrollbar{display:none}
   .dep{scroll-snap-align:center}
   .grade-fotos{grid-template-columns:repeat(3,1fr)}
   .sobre .foto-p{max-width:440px;margin-right:18px}
-  .curso .trio{order:-1}
   .atelie iframe{min-height:320px}
   .rodape .grade{grid-template-columns:1fr 1fr}
   .rodape .grade>div:first-child{grid-column:1/-1}
@@ -332,7 +320,6 @@ fieldset.campo{border:0;padding:0;margin:0}
   .fatos{grid-template-columns:1fr}
   .fatos div:nth-child(odd){border-right:0}
   .fatos div:nth-child(even){padding-left:0}
-  .tecnicas{grid-template-columns:1fr}
   .campos{grid-template-columns:1fr}
   .rodape .grade{grid-template-columns:1fr}
   .frase cite{font-size:28px}

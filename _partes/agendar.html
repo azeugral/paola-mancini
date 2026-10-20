@@ -1,0 +1,40 @@
+title: Agendar | Paola Mancini · Hair & Makeup
+desc: Peça seu orçamento de maquiagem e penteado para noivas, madrinhas, debutantes e eventos no Ateliê Paola Mancini, em São José dos Campos.
+atual: agendar.html
+---
+<main>
+  <section class="topo">
+    <div class="wrap">
+      <div class="orn e"><i></i></div>
+      <h1 class="e" style="--i:1">Agende seu atendimento</h1>
+      <p class="e" style="--i:2">Preencha os dados do seu evento e a mensagem já vai pronta para o WhatsApp da Paola.</p>
+    </div>
+  </section>
+  <section class="secao" style="padding-top:clamp(48px,6vw,72px)">
+    <div class="wrap">
+      <form class="form" id="form-agenda">
+        <div class="campos">
+          <fieldset class="campo cheio">
+            <legend>Atendimento</legend>
+            <div class="opcoes">
+              <label><input type="radio" name="servico" value="Noiva" checked><span>Noiva</span></label>
+              <label><input type="radio" name="servico" value="Madrinha"><span>Madrinha</span></label>
+              <label><input type="radio" name="servico" value="Debutante"><span>Debutante</span></label>
+              <label><input type="radio" name="servico" value="Make social"><span>Make social</span></label>
+              <label><input type="radio" name="servico" value="Só penteado"><span>Só penteado</span></label>
+              <label><input type="radio" name="servico" value="Curso de penteado"><span>Curso de penteado</span></label>
+            </div>
+          </fieldset>
+          <div class="campo cheio"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+          <div class="campo"><label for="f-data">Data do evento</label><input id="f-data" name="data" type="date"></div>
+          <div class="campo"><label for="f-hora">Horário da cerimônia</label><input id="f-hora" name="hora" type="time"></div>
+          <div class="campo"><label for="f-local">Local do evento</label><input id="f-local" name="local" placeholder="Cidade ou espaço"></div>
+          <div class="campo"><label for="f-pessoas">Quantas pessoas</label><select id="f-pessoas" name="pessoas"><option>Só eu</option><option>2 pessoas</option><option>3 a 4 pessoas</option><option>5 ou mais</option></select></div>
+          <div class="campo cheio"><label for="f-obs">Observações</label><textarea id="f-obs" name="obs" placeholder="Estilo que você imagina, referências, dúvidas"></textarea></div>
+        </div>
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+        <small>Abre o WhatsApp com a mensagem pronta para (12) 99224-6928. Nada é enviado sem você confirmar.</small>
+      </form>
+    </div>
+  </section>
+</main>

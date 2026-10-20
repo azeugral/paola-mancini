@@ -65,17 +65,42 @@ d.text((cx, 446), 'São José dos Campos', font=fonte('PlayfairItalic.ttf', 24, 
 base.save(os.path.join(SITE, 'og.jpg'), quality=84, optimize=True, progressive=True)
 
 # ---------- favicons ----------
-def icone(t):
-    im = Image.new('RGB', (t, t), VINHO)
-    f = fonte('GreatVibes-Regular.ttf', int(t * .82))
-    g, m = ouro((t, t), lambda dd: dd.text((t * .53, t * .56), 'P', font=f, fill=255, anchor='mm'))
-    im.paste(g, (0, 0), m)
-    return im
+MARFIM, CHAMP = (252, 248, 244), (240, 226, 217)
+
+
+def icone(t, moldura=True):
+    """P em script vinho, centralizado pela tinta, sobre marfim com moldura dourada fina."""
+    S = 1024  # desenha grande e reduz no fim
+    im = Image.new('RGB', (S, S), MARFIM)
+    fundo = ImageDraw.Draw(im)
+    for r in range(S // 2 * 14 // 10, 0, -4):  # brilho radial: marfim no centro, champanhe nas bordas
+        k = min(1, r / (S * .72))
+        fundo.ellipse([S / 2 - r, S / 2 - r * .95, S / 2 + r, S / 2 + r * 1.05],
+                      fill=tuple(int(MARFIM[i] + (CHAMP[i] - MARFIM[i]) * k) for i in range(3)))
+    # letra: máscara grande, recorta pela tinta e centraliza
+    gm = Image.new('L', (S * 2, S * 2), 0)
+    ImageDraw.Draw(gm).text((S, S), 'P', font=fonte('GreatVibes-Regular.ttf', int(S * 1.25)), fill=255, anchor='mm')
+    gm = gm.filter(ImageFilter.MaxFilter(9 if moldura else 25))  # engrossa o traço; mais nas versões de aba
+    gm = gm.crop(gm.getbbox())
+    alvo = S * (.66 if moldura else .84)
+    esc = alvo / max(gm.size)
+    gm = gm.resize((round(gm.width * esc), round(gm.height * esc)), Image.LANCZOS)
+    cor = Image.new('RGB', gm.size)
+    cd = ImageDraw.Draw(cor)
+    for y in range(gm.height):  # vinho com leve gradiente vertical
+        k = y / max(1, gm.height - 1)
+        cd.line([(0, y), (gm.width, y)], fill=tuple(int(a + (b - a) * k) for a, b in zip((122, 31, 57), (62, 10, 26))))
+    x, y = (S - gm.width) // 2, (S - gm.height) // 2
+    im.paste(cor, (x, y), gm)
+    if moldura:
+        g, m = ouro((S, S), lambda dd: dd.rectangle([S * .07, S * .07, S * .93, S * .93], outline=255, width=max(6, S // 90)))
+        im.paste(g, (0, 0), m)
+    return im.resize((t, t), Image.LANCZOS)
 
 icone(180).save(os.path.join(SITE, 'apple-touch-icon.png'))
-icone(32).save(os.path.join(SITE, 'favicon-32.png'))
-icone(256).resize((48, 48), Image.LANCZOS).save(os.path.join(SITE, 'favicon.ico'), sizes=[(48, 48), (32, 32), (16, 16)])
-buf = io.BytesIO(); icone(128).save(buf, 'PNG')
+icone(32, False).save(os.path.join(SITE, 'favicon-32.png'))
+icone(48, False).save(os.path.join(SITE, 'favicon.ico'), sizes=[(48, 48), (32, 32), (16, 16)])
+buf = io.BytesIO(); icone(128, False).save(buf, 'PNG')
 open(os.path.join(SITE, 'favicon.svg'), 'w').write(
     '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128">'
     '<image width="128" height="128" xlink:href="data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode() + '"/></svg>')

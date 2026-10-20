@@ -85,7 +85,7 @@ p{margin:0 0 1em}
 .hero .lead{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--tinta);max-width:34em}
 .hero .lead strong{font-weight:500;color:var(--vinho)}
 .hero .botoes{display:flex;flex-wrap:wrap;gap:18px 22px;margin-top:34px}
-.selos{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;margin-top:44px;border-top:1px solid var(--linha)}
+.selos{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:0;margin-top:44px;border-top:1px solid var(--linha)}
 .selos div{padding:18px 28px 0 0;margin-right:28px;border-right:1px solid var(--linha)}
 .selos div:last-child{border-right:0;margin-right:0}
 .selos b{display:block;font:600 30px/1 var(--serif);color:var(--vinho)}
@@ -304,7 +304,7 @@ fieldset.campo{border:0;padding:0;margin:0}
   .pilares li{gap:12px}
   .hero .botoes{flex-direction:column;align-items:stretch}
   .hero .botoes .link{align-self:center}
-  .selos{grid-template-columns:repeat(3,1fr);width:100%}
+  .selos{grid-template-columns:repeat(2,1fr);width:100%}
   .selos div{padding:16px 10px 0 0;margin-right:10px}
   .selos b{font-size:24px}
   .selos span{font-size:12px;display:block;line-height:1.35}
